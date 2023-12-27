@@ -16,17 +16,4 @@ router.get("/phones", (req, res, next) => {
       
   });
 
-router.get("/:id", (req, res, next) => {
-  const {id} = req.params
-  const foundPhone = phonesJson.find(phone => phone.id === id);
-  if (foundPhone) {
-    res.json(foundPhone);
-  } else {
-    next(new Error('Phone not found'));
-  }
-});
-
-const phoneRoutes = require("../routes/phone.routes")
-router.use("/phones", phoneRoutes)
-
 module.exports = router;
